@@ -1,0 +1,46 @@
+.flex{
+display: flex;
+}
+.items-center{
+    align-items: center;
+}.justify-center{
+    justify-content: center;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.gap-1{
+    gap: .25rem;
+}
+.gap-2{
+    gap: .5rem;
+}
+.gap-3{
+    gap: 1rem;
+}
+.gap-4{
+    gap: 1.5rem;
+}
+.gap-5{
+    gap: 2rem;
+}
+.gap-6{
+    gap: 2.5rem;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+background-color: #F1F1F1;
+box-shadow: -1px -1px 3px #FFFFFF, 1.5px 1.5px 3px rgba(174, 174, 192, 0.4);
+border-radius: 10px;
+width: 32px;
+height: 32px;
+}
