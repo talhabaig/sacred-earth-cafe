@@ -2,11 +2,12 @@ import React from "react";
 import cafeLogo from "./../assets/img/cafeLogo.png";
 import iconVoiceOver from "./../assets/svg/icon-voice-over.svg";
 import iconTag from "./../assets/svg/icon-tag.svg";
+import { NavLink  } from "react-router-dom";
 const Header = () => {
   return (
-    <nav className="navbar bg-blue-800">
-      <div className="first-row bg-red-600 flex justify-between">
-        <div className="flex items-center gap-2 fs-1">
+    <header className="navbar">
+      <div className="flex justify-between">
+        <div className="flex items-center gap-2">
           <div className="cafelogo">
             <img src={cafeLogo} alt="logo" />
           </div>
@@ -21,13 +22,19 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="nav-tabs">
-        <div>Special</div>
-        <div>Main</div>
-        <div>Desserts</div>
-        <div>Beverages</div>
-      </div>
-    </nav>
+      <nav className="mt-5">
+        <ul className="grid grid-cols-4 text-center text-light text-sm nav-tabs">
+          <NavLink  to="/">
+            <li className="py-3 cursor-pointer">Special</li>
+          </NavLink>
+          <NavLink  to="/main">
+            <li className="py-3 cursor-pointer">Main</li>
+          </NavLink>
+          <li className="py-3 cursor-pointer">Desserts</li>
+          <li className="py-3 cursor-pointer">Beverages</li>
+        </ul>
+      </nav>
+    </header>
   );
 };
 export default Header;

@@ -1,15 +1,21 @@
 import React from "react";
-import TopBanner from "../components/TopBanner";
+import CurrentItem from "../components/CurrentItem";
+import FoodCard from "../components/Special/FoodCard";
+import TopBanner from "../components/Special/TopBanner";
 const Special = () => {
   return (
-    <div>
-      <h1>
-      this is the first page
-      </h1>
-      Pick Up
-     <TopBanner />
-    <span className="font"> Sacred Earth Cafe</span>
-    </div>
+    <main>
+      <TopBanner />
+      <div className="mt-[31px]">
+      <CurrentItem />
+      </div>
+      <div className="flex justify-between flex-wrap">
+      <FoodCard/>
+      <FoodCard/>
+      <FoodCard/>
+      <FoodCard/>
+      </div>
+    </main>
   );
 };
 export default Special;
