@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { RouterProvider } from "react-router-dom";
 import routes from "./routes";
+import { OrderContext } from "./Contexts/Order";
 const App = () => {
+  const [newOrder, setNewOrder] = useState([]);
+  const [previousOrder, setPreviousOrder] = useState([]);
+
   return (
-    <div>
+    <OrderContext.Provider
+      value={{ newOrder, setNewOrder, previousOrder, setPreviousOrder }}
+    >
       <RouterProvider router={routes} />
-    </div>
+    </OrderContext.Provider>
   );
 };
 

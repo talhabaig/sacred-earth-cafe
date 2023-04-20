@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { OrderContext } from "../../Contexts/Order";
 const BtnPlaceOrder = () => {
+  const navigate = useNavigate();
+  const { newOrder, setNewOrder, setPreviousOrder } = useContext(OrderContext);
   return (
-    <button className="fixed bottom-[33px] left-[50%] translate-x-50  w-full flex items-center text-white pl-[16px] rounded-[10px] p-[8px] justify-between btn-place-order">
+    <button
+      onClick={() => {
+        setPreviousOrder((pre) => [...newOrder, ...pre]);
+        setNewOrder([]);
+        navigate("/");
+      }}
+      className="fixed bottom-[33px] left-[50%] translate-x-50  w-full flex items-center text-white pl-[16px] rounded-[10px] p-[8px] justify-between btn-place-order"
+    >
       <span className="text-[12px]">4 Items</span>
       <div className="flex items-center gap-3">
         <span className="text-[13px] bold  tracking-[2px]">Place Order</span>

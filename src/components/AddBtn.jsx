@@ -1,14 +1,69 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
-const AddBtn = () => {
-  const [isActive, setIsActive] = useState(false);
+import { OrderContext } from "../Contexts/Order";
+const AddBtn = ({ item, id }) => {
+  const { newOrder, setNewOrder } = useContext(OrderContext);
 
+  const [isActive, setIsActive] = useState(false);
+  const [itemExist, setitemExist] = useState(false);
+  useEffect(() => {
+    setitemExist(newOrder.find((x) => x.id == item.id));
+    if (itemExist != undefined) {
+      setIsActive((current) => false);
+    } else {
+      setIsActive((current) => true);
+    }
+  }, [newOrder]);
   const handleClick = (event) => {
-    setIsActive((current) => !current);
+    let itemExist = newOrder.find((x) => x.id == item.id);
+    if (itemExist != undefined) {
+      setNewOrder(
+        newOrder.filter((x) => {
+          if (x.id == itemExist.id) {
+            x.quantity = x.quantity + 1;
+            console.log(x);
+            return x;
+          }
+          return x;
+        })
+      );
+
+      return;
+    }
+    let temp = item;
+    temp.quantity = 1;
+
+    setNewOrder((pre) => [...pre, temp]);
+  };
+  const removeItem = () => {
+    let itemExist = newOrder.find((x) => x.id == item.id);
+    if (itemExist != undefined) {
+      setNewOrder(
+        newOrder.filter((x) => {
+          if (x.id == itemExist.id) {
+            x.quantity = x.quantity - 1;
+            if (x.quantity == 0) {
+              setIsActive((current) => true);
+              return;
+            }
+            console.log(x);
+            return x;
+          }
+          return x;
+        })
+      );
+
+      return;
+    }
   };
   return (
-    <div onClick={handleClick} className="flex items-center bg-offwhite cursor-pointer shadow-btn p-[4px] rounded-[10px] text-[13px]">
-      <div className="w-[24px] h-[24px] shadow-inset rounded-full flex items-center justify-center">
+    <div className="flex items-center bg-offwhite cursor-pointer shadow-btn p-[4px] rounded-[10px] text-[13px]">
+      <div
+        className={`w-[24px] h-[24px] shadow-inset rounded-full flex items-center justify-center ${
+          isActive ? "hidden" : ""
+        }`}
+        onClick={removeItem}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="10"
@@ -23,9 +78,18 @@ const AddBtn = () => {
         </svg>
       </div>
 
-      <div className="w-[2.5rem] text-center">Add</div>
+      <div className="w-[2.5rem] text-center">
+        {itemExist == undefined
+          ? item.quantity == 0
+            ? "Add"
+            : item.quantity
+          : itemExist.quantity}
+      </div>
 
-      <div className={`w-[24px] h-[24px] shadow-inset rounded-full flex items-center justify-center ${isActive ? 'hidden' : ''}`} >
+      <div
+        className={`w-[24px] h-[24px] shadow-inset rounded-full flex items-center justify-center `}
+        onClick={handleClick}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="10"

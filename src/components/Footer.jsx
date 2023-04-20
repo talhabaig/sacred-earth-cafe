@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import boltBlack from "./../assets/svg/bolt-black.svg";
 import bookOpen from "./../assets/svg/book-open.svg";
 import shopingBag from "./../assets/svg/shopping-bag.svg";
 import { NavLink } from "react-router-dom";
+import { OrderContext } from "../Contexts/Order";
 const Footer = () => {
+  const { newOrder } = useContext(OrderContext);
   return (
     <footer className="bottom-bar">
       <div className="btn">
@@ -16,7 +18,7 @@ const Footer = () => {
         <div className="btn relative">
           <img src={shopingBag} alt="img" />
           <span className="flex items-center justify-center w-[16px] h-[16px] bg-[#EF4B4B] text-white text-[9px] rounded-full absolute right-[-6px] top-[-8px]">
-            3
+            {newOrder.length}
           </span>
         </div>
       </NavLink>
