@@ -10,7 +10,7 @@ const PlaceOrder = () => {
       <SecondaryHeader />
       <main className="place-order">
         <div className="mt-2">
-          <CurrentItem />
+          <CurrentItem content="Current order"/>
         </div>
         <div className="w-full shadow-lg py-[16px] px-[.6rem] rounded-[10px]">
           <CurrentOrder />
@@ -22,7 +22,7 @@ const PlaceOrder = () => {
           </div>
         </div>
         <div className="mt-[20px]">
-          <CurrentItem />
+          <CurrentItem content="Previous order" />
         </div>
         <div className="w-full shadow-lg py-[16px] px-[.6rem] rounded-[10px]">
           <PreviousOrder />

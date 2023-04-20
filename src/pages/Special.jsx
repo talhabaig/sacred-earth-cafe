@@ -7,7 +7,7 @@ const Special = () => {
     <main>
       <TopBanner />
       <div className="mt-[31px]">
-      <CurrentItem />
+      <CurrentItem content="Today’s Special" />
       </div>
       <div className="flex justify-between flex-wrap">
       <FoodCard/>

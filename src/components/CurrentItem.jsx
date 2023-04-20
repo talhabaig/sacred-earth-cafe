@@ -11,7 +11,7 @@ const CurrentItem = (props) => {
       className="flex items-center mb-[18px] cursor-pointer"
       onClick={handleClick}
     >
-      <div className="text-[14px]">Today’s Special</div>
+      <div className="text-[14px]">{props.content}</div>
       <hr className="mx-[0.5rem] flex-auto bg-primary" />
       <div className="w-[20px] h-[20px] flex items-center justify-center">
         <svg

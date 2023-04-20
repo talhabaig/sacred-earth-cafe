@@ -6,7 +6,7 @@ import Menu from "../components/Menu";
 const Main = () => {
   return (
     <main>
-      <CurrentItem/>
+      <CurrentItem content="Acai bowls"/>
       <div className="flex flex-wrap">
       <SelectedCard/>
       <SelectedCardNoImg/>

@@ -13,8 +13,8 @@ const PreviousOrder = () => {
           <span className="text-[13px]">₹299</span>
         </div>
       </div>
-      <div>
-        <AddBtn />
+      <div className="w-[96px] text-center text-[13px]">
+        1
       </div>
     </div>
   );
