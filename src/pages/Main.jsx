@@ -6,16 +6,16 @@ import Menu from "../components/Menu";
 const Main = () => {
   return (
     <main>
-      <CurrentItem content="Acai bowls"/>
+      <CurrentItem content="Acai bowls" />
       <div className="flex flex-wrap">
-      <SelectedCard/>
-      <SelectedCardNoImg/>
-      <SelectedCard/>
-      <SelectedCardNoImg/>
-      <SelectedCard/>
-      <SelectedCardNoImg/>
+        <SelectedCard id={5} />
+        <SelectedCardNoImg id={6} />
+        <SelectedCard id={7} />
+        <SelectedCardNoImg id={8} />
+        <SelectedCard id={9} />
+        <SelectedCardNoImg id={10} />
       </div>
-      <Menu/>
+      <Menu />
     </main>
   );
 };
